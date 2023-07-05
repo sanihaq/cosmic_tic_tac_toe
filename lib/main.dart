@@ -9,7 +9,7 @@ import 'views/game.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  if (PlatformDetails.instance.isDesktop) {
+  if (PlatformDetails.instance.isDesktop && !PlatformDetails.instance.isWeb) {
     await windowManager.ensureInitialized();
     windowManager.setAlwaysOnTop(true);
     windowManager.setResizable(false);
