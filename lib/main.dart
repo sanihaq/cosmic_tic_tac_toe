@@ -3,13 +3,17 @@ import 'package:window_manager/window_manager.dart' show windowManager;
 import 'package:cosmic_tic_tac_toe/theme/constants.dart';
 import 'package:flutter/material.dart';
 
+import 'utils/platform_details.dart';
 import 'views/game.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await windowManager.ensureInitialized();
 
-  windowManager.setAlwaysOnTop(true);
+  if (PlatformDetails.instance.isDesktop) {
+    await windowManager.ensureInitialized();
+    windowManager.setAlwaysOnTop(true);
+  }
+
   Board.instance;
 
   runApp(const App());
