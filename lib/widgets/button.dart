@@ -22,18 +22,18 @@ class Button extends StatelessWidget {
       child: Container(
         decoration: BoxDecoration(
           color: kButtonColor,
-          borderRadius: BorderRadius.circular(4),
+          borderRadius: BorderRadius.circular(3),
         ),
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 6.0, vertical: 2),
+          padding: const EdgeInsets.only(left: 6.0, right: 6.0, top: 2, bottom: 2.4),
           child: Text(
             label,
             style: const TextStyle(
               color: kButtonTextColor,
-              fontSize: 9,
+              fontSize: 8,
               fontFamily: 'Inter',
               fontWeight: FontWeight.w700,
-              letterSpacing: 3,
+              letterSpacing: 2,
             ),
           ),
         ),

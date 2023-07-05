@@ -12,6 +12,7 @@ void main() async {
   if (PlatformDetails.instance.isDesktop) {
     await windowManager.ensureInitialized();
     windowManager.setAlwaysOnTop(true);
+    windowManager.setResizable(false);
   }
 
   Board.instance;
