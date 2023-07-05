@@ -62,6 +62,28 @@ class _TicTacToeState extends State<TicTacToe> {
                     child: Stack(
                       children: [
                         Image.asset(kBoardBackground),
+                        Padding(
+                          padding:
+                              const EdgeInsets.symmetric(horizontal: 32, vertical: 10.0),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: ['TIC', ' TAC', 'TOE']
+                                .map(
+                                  (e) => Text(
+                                    e,
+                                    textAlign: TextAlign.center,
+                                    style: const TextStyle(
+                                      color: Color(0xFFEED3A3),
+                                      fontSize: 7,
+                                      fontFamily: 'Inter',
+                                      fontWeight: FontWeight.w900,
+                                      letterSpacing: 6,
+                                    ),
+                                  ),
+                                )
+                                .toList(),
+                          ),
+                        ),
                         Align(
                           alignment: Alignment.center,
                           child: Padding(
