@@ -1,7 +1,7 @@
-import 'package:cosmic_tic_tac_toe/utils/board.dart';
 import 'package:window_manager/window_manager.dart' show windowManager;
-import 'package:cosmic_tic_tac_toe/theme/constants.dart';
 import 'package:flutter/material.dart';
+import 'package:cosmic_tic_tac_toe/utils/board.dart';
+import 'package:cosmic_tic_tac_toe/theme/constants.dart';
 
 import 'utils/platform_details.dart';
 import 'views/game.dart';

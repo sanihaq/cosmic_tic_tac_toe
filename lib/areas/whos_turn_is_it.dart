@@ -1,3 +1,4 @@
+import 'package:cosmic_tic_tac_toe/utils/board.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_reactive_value/flutter_reactive_value.dart';
 
@@ -51,9 +52,11 @@ class WhosTurnIsIt extends StatelessWidget {
               highlightColor: Colors.transparent,
               splashFactory: NoSplash.splashFactory,
               onTap: () {
-                playerState.value = playerState.value == PlayerType.planet
-                    ? PlayerType.star
-                    : PlayerType.planet;
+                if (Board.instance.board.every((el) => el == null)) {
+                  playerState.value = playerState.value == PlayerType.planet
+                      ? PlayerType.star
+                      : PlayerType.planet;
+                }
               },
               child: Image.asset(kSwitchButton),
             ),
