@@ -11,6 +11,7 @@ void main() async {
 
   if (PlatformDetails.instance.isDesktop && !PlatformDetails.instance.isWeb) {
     await windowManager.ensureInitialized();
+    windowManager.setSize(const Size(1240 / 3, 2048 / 3));
     windowManager.setAlwaysOnTop(true);
     windowManager.setResizable(false);
   }
