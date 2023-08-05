@@ -16,6 +16,12 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
-      - uses: subosito/flutter-action@v1
-      - uses: bluefireteam/flutter-gh-pages@v7
+      - uses: actions/checkout@v3
+      - uses: subosito/flutter-action@v2
+      - run: flutter pub get
+      - run: flutter build web --release
+      - name: Publish to GitHub Pages
+        uses: tsunematsu21/actions-publish-gh-pages@v1
+        with:
+          dir: build/web
+          branch: gh-pages
