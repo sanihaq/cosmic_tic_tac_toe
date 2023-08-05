@@ -21,7 +21,7 @@ jobs:
       - run: flutter pub get
       - run: flutter build web --release
       - name: Publish to GitHub Pages
-        uses: tsunematsu21/actions-publish-gh-pages@v1
+        uses: tsunematsu21/actions-publish-gh-pages@v1.0.2
         with:
           dir: build/web
           branch: gh-pages
