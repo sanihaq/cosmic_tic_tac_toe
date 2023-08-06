@@ -1,9 +1,4 @@
-# This workflow uses actions that are not certified by GitHub.
-# They are provided by a third-party and are governed by
-# separate terms of service, privacy policy, and support
-# documentation.
-
-name: Dart
+name: Web Build
 
 on:
   push:
@@ -21,6 +16,4 @@ jobs:
       - run: flutter pub get
       - run: flutter build web --release
       - name: Publish to GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@v4
-        with:
-          folder: build/web
+        run: echo "done"
