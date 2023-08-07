@@ -26,6 +26,29 @@ class _TicTacToeState extends State<TicTacToe> {
   }
 
   @override
+  void didChangeDependencies() {
+    precacheImage(Image.asset(kSlotBackground).image, context);
+    precacheImage(Image.asset(kFrame).image, context);
+    precacheImage(Image.asset(kBoardBackground).image, context);
+    precacheImage(Image.asset(kTurnBackgroundPlanet).image, context);
+    precacheImage(Image.asset(kTurnBackgroundStar).image, context);
+    precacheImage(Image.asset(kSwitchButton).image, context);
+    precacheImage(Image.asset(kTurnHollowPlanet).image, context);
+    precacheImage(Image.asset(kTurnHollowStar).image, context);
+    precacheImage(Image.asset(kWinBannerPlanet).image, context);
+    precacheImage(Image.asset(kWinBannerStar).image, context);
+    precacheImage(Image.asset(kPlanetShadow).image, context);
+    precacheImage(Image.asset(kPlanet).image, context);
+    precacheImage(Image.asset(kStarShadow).image, context);
+    precacheImage(Image.asset(kStar).image, context);
+    precacheImage(Image.asset(kFillStar).image, context);
+    precacheImage(Image.asset(kFilledPlanet).image, context);
+    precacheImage(Image.asset(kHoverPlanet).image, context);
+    precacheImage(Image.asset(kHoverStar).image, context);
+    super.didChangeDependencies();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Stack(

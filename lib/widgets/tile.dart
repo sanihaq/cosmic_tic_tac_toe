@@ -57,9 +57,7 @@ class _BoardTileState extends State<BoardTile> {
               child: Transform.scale(
                 scale: 1.02,
                 child: Image.asset(
-                  Board.instance.board[widget.index] == PlayerType.star
-                      ? kFillStar
-                      : kFilledPlanet,
+                  Board.instance.board[widget.index] == PlayerType.star ? kFillStar : kFilledPlanet,
                 ),
               ),
             )
