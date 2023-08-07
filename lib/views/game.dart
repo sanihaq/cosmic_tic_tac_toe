@@ -57,104 +57,106 @@ class _TicTacToeState extends State<TicTacToe> {
               builder: (BuildContext ctx, BoxConstraints constraint) {
                 final double size = constraint.maxWidth > (200 * 3) ? 200 : constraint.maxWidth / 3;
                 return FutureBuilder(
-                    future: precacheImage(Image.asset(kSlotBackground).image, context),
-                    builder: (context, _) {
-                      return Stack(
-                        children: [
-                          Align(
-                            alignment: Alignment.center,
-                            child: Padding(
-                              padding: EdgeInsets.only(top: size * 3.16),
-                              child: SizedBox(
-                                height: size * 0.7,
-                                child: WhosTurnIsIt(size: size),
-                              ),
-                            ),
-                          ),
-                          Align(
-                            alignment: Alignment.center,
-                            child: Padding(
-                              padding: EdgeInsets.only(bottom: size * 2.85, left: size * 2),
-                              child: SizedBox(
-                                child: Button(
-                                  label: 'RESTART',
-                                  onTap: Board.instance.restart,
-                                ),
-                              ),
-                            ),
-                          ),
-                          Align(
-                            alignment: Alignment.center,
+                  future: precacheImage(Image.asset(kSlotBackground).image, context),
+                  builder: (context, snapshot) {
+                    if (snapshot.connectionState != ConnectionState.done) return const SizedBox();
+                    return Stack(
+                      children: [
+                        Align(
+                          alignment: Alignment.center,
+                          child: Padding(
+                            padding: EdgeInsets.only(top: size * 3.16),
                             child: SizedBox(
-                              width: size * 2.5,
-                              height: size * 2.5,
-                              child: Stack(
-                                children: [
-                                  Image.asset(kBoardBackground),
-                                  Padding(
-                                    padding:
-                                        const EdgeInsets.symmetric(horizontal: 32, vertical: 14.0),
-                                    child: Row(
-                                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                                      children: ['TIC', ' TAC', 'TOE']
-                                          .map(
-                                            (e) => Text(
-                                              e,
-                                              textAlign: TextAlign.center,
-                                              style: const TextStyle(
-                                                color: Color(0xFFEED3A3),
-                                                fontSize: 7,
-                                                fontFamily: 'Inter',
-                                                fontWeight: FontWeight.w900,
-                                                letterSpacing: 6,
-                                              ),
-                                            ),
-                                          )
-                                          .toList(),
-                                    ),
-                                  ),
-                                  Align(
-                                    alignment: Alignment.center,
-                                    child: Padding(
-                                      padding: const EdgeInsets.only(right: 2.0, bottom: 4.0),
-                                      child: SizedBox(
-                                        width: size * 1.95,
-                                        height: size * 1.95,
-                                        child: GridView(
-                                          physics: const NeverScrollableScrollPhysics(),
-                                          padding: EdgeInsets.zero,
-                                          gridDelegate:
-                                              const SliverGridDelegateWithFixedCrossAxisCount(
-                                            crossAxisCount: 3,
-                                          ),
-                                          children: List.generate(
-                                            9,
-                                            (index) => BoardTile(index: index),
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                  IgnorePointer(
-                                    child: Padding(
-                                      padding: const EdgeInsets.only(right: 4.5, bottom: 1.1),
-                                      child: Align(
-                                        alignment: Alignment.center,
-                                        child: Image.asset(
-                                          kFrame,
-                                          width: size * 2.078,
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                ],
+                              height: size * 0.7,
+                              child: WhosTurnIsIt(size: size),
+                            ),
+                          ),
+                        ),
+                        Align(
+                          alignment: Alignment.center,
+                          child: Padding(
+                            padding: EdgeInsets.only(bottom: size * 2.85, left: size * 2),
+                            child: SizedBox(
+                              child: Button(
+                                label: 'RESTART',
+                                onTap: Board.instance.restart,
                               ),
                             ),
                           ),
-                          if (winState.reactiveValue(context) != null) const WinBanner(),
-                        ],
-                      );
-                    });
+                        ),
+                        Align(
+                          alignment: Alignment.center,
+                          child: SizedBox(
+                            width: size * 2.5,
+                            height: size * 2.5,
+                            child: Stack(
+                              children: [
+                                Image.asset(kBoardBackground),
+                                Padding(
+                                  padding:
+                                      const EdgeInsets.symmetric(horizontal: 32, vertical: 14.0),
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                    children: ['TIC', ' TAC', 'TOE']
+                                        .map(
+                                          (e) => Text(
+                                            e,
+                                            textAlign: TextAlign.center,
+                                            style: const TextStyle(
+                                              color: Color(0xFFEED3A3),
+                                              fontSize: 7,
+                                              fontFamily: 'Inter',
+                                              fontWeight: FontWeight.w900,
+                                              letterSpacing: 6,
+                                            ),
+                                          ),
+                                        )
+                                        .toList(),
+                                  ),
+                                ),
+                                Align(
+                                  alignment: Alignment.center,
+                                  child: Padding(
+                                    padding: const EdgeInsets.only(right: 2.0, bottom: 4.0),
+                                    child: SizedBox(
+                                      width: size * 1.95,
+                                      height: size * 1.95,
+                                      child: GridView(
+                                        physics: const NeverScrollableScrollPhysics(),
+                                        padding: EdgeInsets.zero,
+                                        gridDelegate:
+                                            const SliverGridDelegateWithFixedCrossAxisCount(
+                                          crossAxisCount: 3,
+                                        ),
+                                        children: List.generate(
+                                          9,
+                                          (index) => BoardTile(index: index),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                IgnorePointer(
+                                  child: Padding(
+                                    padding: const EdgeInsets.only(right: 4.5, bottom: 1.1),
+                                    child: Align(
+                                      alignment: Alignment.center,
+                                      child: Image.asset(
+                                        kFrame,
+                                        width: size * 2.078,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                        if (winState.reactiveValue(context) != null) const WinBanner(),
+                      ],
+                    );
+                  },
+                );
               },
             ),
           ),
